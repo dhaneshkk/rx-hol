@@ -1,0 +1,48 @@
+<!--
+Observable and Subscribtion objects represent a data source and a listener, respectively. 
+In order to observe an observable sequence’s notifications, one gives it an observer object using the Subscribe function, 
+receiving a handle object that be used to unsubscribe by calling Dispose.
+-->
+<head>
+  <title>
+Introductory Exercise
+  </title>
+  <script type="text/javascript" src="../scripts/rx.all.js">
+    
+  </script>
+<script type="text/javascript">
+  function iExploreRx(){ 
+//  var source = Rx.Observable.just(42);
+var answer = Rx.Observable.create(function (observer) {
+  // Yield a single value and complete
+  observer.onNext(42);
+  observer.onCompleted();
+
+  // Any cleanup logic might go here
+  return function () {
+    document.write('disposed');
+    console.log('disposed');
+  }
+});
+
+var subscription = answer.subscribe(
+  function (x) {
+    document.write('Next:', x);
+    console.log('Next: %s', x);
+  },
+  function (err) {
+    console.log('Error: %s', err);
+  },
+  function () {
+   document.write('Completed');
+   console.log('Completed');
+});
+subscription.dispose();
+}
+</script>
+</head>
+<body>
+<button onclick="javascript:iExploreRx()">Tell me the answer</button>
+  
+</body>
+
