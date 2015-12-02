@@ -6,21 +6,26 @@ Introductory Exercise
     
   </script>
 <script type="text/javascript">
-var source = Rx.Observable.just(42);
+  function iExploreRx(){ 
+  var source = Rx.Observable.just(42);
 
 var subscription = source.subscribe(
   function (x) {
+    document.write('Next:', x);
     console.log('Next: %s', x);
   },
   function (err) {
     console.log('Error: %s', err);
   },
   function () {
+   document.write('Completed');
    console.log('Completed');
 });
-
+}
 </script>
 </head>
 <body>
+<button onclick="javascript:iExploreRx()">Tell me the answer</button>
+  
 </body>
 
