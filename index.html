@@ -1,0 +1,26 @@
+<head>
+  <title>
+Introductory Exercise
+  </title>
+  <script type="text/javascript" src="rx.all.js">
+    
+  </script>
+<script type="text/javascript">
+var source = Rx.Observable.just(42);
+
+var subscription = source.subscribe(
+  function (x) {
+    console.log('Next: %s', x);
+  },
+  function (err) {
+    console.log('Error: %s', err);
+  },
+  function () {
+   console.log('Completed');
+});
+
+</script>
+</head>
+<body>
+</body>
+
