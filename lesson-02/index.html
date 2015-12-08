@@ -7,13 +7,13 @@ receiving a handle object that be used to unsubscribe by calling Dispose.
   <title>
 Introductory Exercise
   </title>
-  <script type="text/javascript" src="../scripts/rx.all.js"> </script>
   <script type="text/javascript" src="../scripts/jquery-1.11.2.min.js"> </script>
+  <script type="text/javascript" src="../scripts/rx.all.js"> </script>
 <script type="text/javascript">
 function iExploreRx(){ 
 //  var source = Rx.Observable.just(42);
 var source = Rx.Observable.create(function (observer) {
-  // Yield a single value and complete
+  // Yield a single value and completel
   observer.onNext(42);
   observer.onCompleted();
 
@@ -40,6 +40,6 @@ subscription.dispose();
 </head>
 <body>
 <button onclick="javascript:iExploreRx()">Tell me the answer</button>
-<p id="content"></p>  
+<p id="content"/>  
 </body>
 
